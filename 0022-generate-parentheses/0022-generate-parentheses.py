@@ -1,33 +1,30 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        res = []
+        opened = closed = n
+        params = []
+        op = ""
         
-        def generate(stack = []):
+        def generate(opened, closed, op):
+            if opened == 0 and closed == 0:
+                params.append(op)
+                return
             
-            if len(stack) == 2 * n:
-                if isValid(stack):
-                    res.append("".join(stack))
+            if opened == closed:
+                generate(opened-1, closed, op + '(')
                 
-            else:
-                stack.append('(')
-                generate(stack)
-                stack.pop()
-                stack.append(')')
-                generate(stack)
-                stack.pop()
-        
-        def isValid(arr):
-            bal = 0
-            for ch in arr:
-                if ch == '(':
-                    bal += 1
+            elif opened < closed:
+                if opened == 0:
+                    generate(opened, closed-1, op + ')')
+                
                 else:
-                    bal -= 1
-                
-                if bal < 0:
-                    return False
-            return bal == 0
-    
-        generate()
-        return res
+                    generate(opened-1, closed, op + '(')
+                    
+                    generate(opened, closed-1, op + ')')
+            
+            return
+        
+        
+        
+        generate(opened, closed, op)
+        return params
                 
