@@ -9,17 +9,11 @@ class Solution:
                 params.append(op)
                 return
             
-            if opened == closed:
+            if opened != 0:
                 generate(opened-1, closed, op + '(')
                 
-            elif opened < closed:
-                if opened == 0:
-                    generate(opened, closed-1, op + ')')
-                
-                else:
-                    generate(opened-1, closed, op + '(')
-                    
-                    generate(opened, closed-1, op + ')')
+            if opened < closed:                    
+                generate(opened, closed-1, op + ')')
             
             return
         
