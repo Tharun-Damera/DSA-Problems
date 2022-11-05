@@ -9,8 +9,7 @@ class Solution:
             if N == 0:
 	            ans.append(op)
 	            return
-	        
-	        
+	   
 	        generate(N-1, ones+1, zeros, op + '1')
 	            
 	        if ones > zeros:
@@ -18,8 +17,6 @@ class Solution:
 	            generate(N-1, ones, zeros+1, op + '0')
 	            
 	            
-	       
-	       
 	    
 	    generate(N, ones, zeros, op)
         return ans  
