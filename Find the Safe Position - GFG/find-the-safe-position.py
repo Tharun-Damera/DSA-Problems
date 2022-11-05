@@ -3,11 +3,6 @@
 class Solution:
     def safePos(self, n, k):
         
-            
-        ans = [i for i in range(1, n+1)]
-        index = 0
-        k -= 1
-        
         def alive(n, k, index):
             if n == 1:
                 return
@@ -18,7 +13,13 @@ class Solution:
             alive(len(ans), k, index)
             
             
+        
+        ans = [i for i in range(1, n+1)]
+        index = 0
+        k -= 1
+
         alive(n, k, index)
+        
         return ans[0]
 
 #{ 
