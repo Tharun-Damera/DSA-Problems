@@ -10,13 +10,11 @@ class Solution:
 	            ans.append(op)
 	            return
 	        
-	        if ones == zeros:
-	            generate(N-1, ones+1, zeros, op + '1')
-	       
-	        elif ones > zeros:
+	        
+	        generate(N-1, ones+1, zeros, op + '1')
 	            
-	            generate(N-1, ones+1, zeros, op + '1')
-	                
+	        if ones > zeros:
+	           
 	            generate(N-1, ones, zeros+1, op + '0')
 	            
 	            
