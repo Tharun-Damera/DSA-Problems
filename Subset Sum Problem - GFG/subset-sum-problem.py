@@ -3,25 +3,25 @@
 class Solution:
     def isSubsetSum (self, n, arr, k):
         
-        dp = [[-1 for i in range(k+1)] for j in range(n+1)]
-        def solve(arr, k, n):
-            if k == 0:
-                return True
-            
-            if n == 1:
-                return arr[0] == k
-                
-            if dp[n][k] != -1:
-                return dp[n][k]
-            
-            if arr[n-1] <= k:
-                dp[n][k] = solve(arr, k-arr[n-1], n-1) or solve(arr, k, n-1)
-                return dp[n][k]
-            else:
-                dp[n][k] = solve(arr, k, n-1)
-                return dp[n][k]
+        dp = [[False for i in range(k+1)] for j in range(n+1)]
         
-        return solve(arr, sum, N)
+        for i in range(n+1):
+            for j in range(k+1):
+                if j == 0:
+                    dp[i][j] = True
+                
+                
+        for i in range(1, n+1):
+            for j in range(1, k+1):
+                
+                if arr[i-1] <= j:
+                    dp[i][j] = dp[i-1][j-arr[i-1]] or dp[i-1][j]
+                
+                else:
+                    dp[i][j] = dp[i-1][j]
+
+        
+        return dp[n][k]
         
 
 
