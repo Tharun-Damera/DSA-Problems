@@ -3,10 +3,12 @@
 class Solution:
     def isSubsetSum (self, n, arr, k):
         
-        dp = [[False for i in range(k+1)] for j in range(n+1)]
+        dp = [[None for i in range(k+1)] for j in range(n+1)]
         
         for i in range(n+1):
             for j in range(k+1):
+                if i == 0:
+                    dp[i][j] = False
                 if j == 0:
                     dp[i][j] = True
                 
