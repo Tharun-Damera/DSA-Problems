@@ -21,7 +21,7 @@ class Solution:
                 dp[n][W] = kS(wt, val, W, n-1)
                 return dp[n][W]
         
-        return kS(wt, val, W, n)
+        kS(wt, val, W, n)
         
         return dp[n][W]
 
