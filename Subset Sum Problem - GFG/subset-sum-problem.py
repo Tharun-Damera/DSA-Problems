@@ -3,7 +3,7 @@
 class Solution:
     def isSubsetSum (self, n, arr, k):
         
-        dp = [[None for i in range(k+1)] for j in range(n+1)]
+        dp = [[None]*(k+1) for j in range(n+1)]
         
         for i in range(n+1):
             for j in range(k+1):
