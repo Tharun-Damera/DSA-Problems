@@ -13,7 +13,7 @@ class Solution:
             prev = curr
             
         
-        return int(prev % (1e9 + 7))
+        return prev
 
 
 #{ 
