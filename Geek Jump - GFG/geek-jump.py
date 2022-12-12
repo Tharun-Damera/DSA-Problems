@@ -4,20 +4,22 @@ import sys
 class Solution:
     def minimumEnergy(self, height, n):
         
-        dp = [-1] * (n)
-        dp[0] = 0
+        prev = prev2 = 0
         
         for i in range(1, n):
             
-            left = abs(height[i] - height[i-1]) + dp[i-1]
+            left = abs(height[i] - height[i-1]) + prev
             right = sys.maxsize
             
             if i > 1:
-                right = abs(height[i] - height[i-2]) + dp[i-2]
+                right = abs(height[i] - height[i-2]) + prev2
             
-            dp[i] = min(left, right)
+            curr = min(left, right)
+            prev2 = prev
+            prev = curr
+            
         
-        return dp[n-1]
+        return prev
         
         
     
