@@ -7,8 +7,8 @@ class MyStack:
     
     #Function to push an integer into the stack.
     def push(self,data):
-        self.data = data
-        self.arr.append(self.data)
+        
+        self.arr.append(data)
     
     #Function to remove an item from top of the stack.
     def pop(self):
