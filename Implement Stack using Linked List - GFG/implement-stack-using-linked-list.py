@@ -24,9 +24,11 @@ class MyStack:
             return -1
         
         x = self.top
+        val = x.data
         self.top = self.top.next
+        del x
         
-        return x.data
+        return val
         
         
         
